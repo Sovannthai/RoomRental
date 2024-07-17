@@ -4,13 +4,30 @@
 @section('page-title', 'Dashborad')
 <style>
     .card-stats {
-        border: 2px solid #2e3ff6 !important;
+        position: relative;
+        border: 2px solid transparent;
+        background-image: linear-gradient(white, white),
+            linear-gradient(45deg, slateblue, #ff75c3, #0d9bb3);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
         transition: 0.5s;
     }
 
     .card-stats:hover {
         transform: 5s;
         transform: translateY(-15px);
+    }
+
+    .card-chart {
+        /* border: 2px solid #2e3ff6 !important; */
+        position: relative;
+        border: 2px solid transparent;
+        background-image: linear-gradient(white, white),
+            linear-gradient(45deg, slateblue, #ff75c3, #0d9bb3);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        border-radius: 10px;
+        padding: 1rem;
     }
 </style>
 <div class="row">
@@ -91,4 +108,48 @@
         </div>
     </div>
 </div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card card-chart">
+            <div class="card-header bg-primary" data-toggle="collapse" data-target="#barChartCard">
+                <div class="card-title text-white">Bar Chart</div>
+            </div>
+            <div id="barChartCard" class="collapse show">
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="barChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    var barChart = document.getElementById('barChart').getContext('2d');
+
+    var myBarChart = new Chart(barChart, {
+        type: 'bar',
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: "Sales",
+                backgroundColor: 'rgb(23, 125, 255)',
+                borderColor: 'rgb(23, 125, 255)',
+                data: [3, 2, 9, 5, 4, 6, 4, 6, 7, 8, 7, 4],
+            }],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            },
+        }
+    });
+</script>
 @endsection

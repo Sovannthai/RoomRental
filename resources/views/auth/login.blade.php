@@ -19,11 +19,18 @@
         }
 
         .card {
+            border: 2px solid #f3f3f3 !important;
             border: none;
-            border-radius: 1rem;
+            border-radius: 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             background: rgba(255, 255, 255, 0.226);
             backdrop-filter: blur(100%);
+            transition: 0.5s;
+        }
+
+        .card:hover {
+            transform: 5s;
+            transform: translateY(-15px);
         }
 
         .card-header {
@@ -53,7 +60,8 @@
             border-color: #007bff;
             box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
         }
-        .form-control{
+
+        .form-control {
             border-radius: 0px;
         }
     </style>
