@@ -111,8 +111,8 @@
 <div class="row">
     <div class="col-sm-12">
         <div class="card card-chart">
-            <div class="card-header bg-primary" data-toggle="collapse" data-target="#barChartCard">
-                <div class="card-title text-white">Bar Chart</div>
+            <div class="card-header" data-toggle="collapse" data-target="#barChartCard">
+                <div class="card-title">Bar Chart</div>
             </div>
             <div id="barChartCard" class="collapse show">
                 <div class="card-body">

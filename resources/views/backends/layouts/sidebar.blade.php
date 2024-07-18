@@ -4,7 +4,8 @@
         <div class="sidebar-content">
             <div class="user">
                 <div class="avatar-sm float-left mr-2">
-                    <img src="{{ asset('backends/assets/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                    <img src="{{ asset('backends/assets/img/profile.jpg') }}" alt="..."
+                        class="avatar-img rounded-circle">
                 </div>
                 <div class="info">
                     <a data-toggle="collapse" href="#collapseExample" aria-expanded="true">
@@ -38,7 +39,7 @@
                 </div>
             </div>
             <ul class="nav">
-                <li class="nav-item active">
+                <li class="nav-item @if (Route::is('home')) active @endif">
                     <a href="{{ route('home') }}">
                         <i class="fas flaticon-imac"></i>
                         <p>Dashboard</p>
@@ -52,28 +53,34 @@
                     {{-- <h4 class="text-section">Components</h4> --}}
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#forms">
+                    <a data-toggle="collapse" href="#forms"
+                        @if (Route::is('roles.*') || Route::is('permission.*')) aria-expanded="true" @else aria-expanded="false" @endif>
                         <i class="fas fa-users"></i>
                         <p>User Management</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="forms">
+                    <div class="collapse @if (Route::is('roles.*') || Route::is('permission.*')) show @endif" id="forms">
                         <ul class="nav nav-collapse">
                             <li>
                                 <a href="#">
                                     <span class="sub-item">Users</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li class="@if (Route::is('roles.*')) active @endif">
+                                <a href="{{ route('roles.index') }}">
                                     <span class="sub-item">Role</span>
+                                </a>
+                            </li>
+                            <li class="@if (Route::is('permission.*')) active @endif">
+                                <a href="{{ route('permission.index') }}">
+                                    <span class="sub-item">Permissions</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a href="widgets.html">
+                    <a href="#">
                         <i class="fas flaticon-home"></i>
                         <p>Room</p>
                         <span class="badge badge-count badge-success">4</span>

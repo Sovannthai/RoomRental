@@ -46,3 +46,6 @@
 <!-- Azzara DEMO methods, don't include it in your project! -->
 <script src="{{ asset('backends/assets/js/setting-demo.js') }}"></script>
 {{-- <script src="{{ asset('backends/assets/js/demo.js') }}"></script>   --}}
+<!-- resources/views/backends/layouts/script.blade.php -->
+
+
